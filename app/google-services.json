@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "466590063513",
+    "project_id": "detect-8ffd0",
+    "storage_bucket": "detect-8ffd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466590063513:android:562ad34989aa1b2e1ed108",
+        "android_client_info": {
+          "package_name": "org.tensorflow.lite.examples.objectdetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466590063513-3hjctaupt4h3n4rg1n4nsaet3541qvg5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.tensorflow.lite.examples.objectdetection",
+            "certificate_hash": "bc1a4c493256869174dfb552b9df341d4f5729e5"
+          }
+        },
+        {
+          "client_id": "466590063513-2bt5shpslunarvrkfl0j46f8sfi6hcs7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4qUI-38Ym6mzQK5qaRZE4fBXPBvj4IP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466590063513-2bt5shpslunarvrkfl0j46f8sfi6hcs7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
