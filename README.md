@@ -1,39 +1,31 @@
-# TensorFlow Lite Object Detection Android Demo
+# Farmer Vision 👨‍🌾👁 - Google Solution Challenge 2023
+This project aims to protect farmer's crops from damage and destruction by keeping a look out for any intruding cattle or livestock. This project is a collaboration among the members of <a href="https://www.linkedin.com/company/developer-student-clubs-bbdnitm1/" target="_blank" rel="noreferrer">GDSC BBDITM</a>: <a href="https://github.com/harisj58/" target="_blank" rel="noreferrer">Haris Javed</a>, <a href="https://github.com/abdullahnizami77" target="_blank" rel="noreferrer">Abdullah Nizami</a> and Anurag Pathak.
 
-### Overview
+## Project Details
 
-This is a camera app that continuously detects the objects (bounding boxes and
-classes) in the frames seen by your device's back camera, with the option to use
-a quantized
-[MobileNet SSD](https://tfhub.dev/tensorflow/lite-model/ssd_mobilenet_v1/1/metadata/2),
-[EfficientDet Lite 0](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite0/detection/metadata/1),
-[EfficientDet Lite1](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite1/detection/metadata/1),
-or
-[EfficientDet Lite2](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite2/detection/metadata/1)
-model trained on the [COCO dataset](http://cocodataset.org/). These instructions
-walk you through building and running the demo on an Android device.
+### Tech Stack:
+Android Studio, Firebase, TensorFlow
+<p align="left">
+<a href="https://developer.android.com/studio" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Android_Studio_Icon_3.6.svg/512px-Android_Studio_Icon_3.6.svg.png?20210301045217" alt="android_studio" width="40" height="40"/> </a><a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a><a href="https://www.tensorflow.org/" target="_blank" rel="noreferrer"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a></p>
 
-The model files are downloaded via Gradle scripts when you build and run the
-app. You don't need to do any steps to download TFLite models into the project
-explicitly.
+### Description:
 
-**Terms:** By accessing or using TensorFlow Lite in Google Play services APIs,
-you agree to the [Terms of Service](https://www.tensorflow.org/lite/android/play_services#tos).
-Please read and understand all applicable terms and policies before accessing
-the APIs.
+* In recent times, the unchecked growth of stray cattle roaming about is causing menace for people. In India, especially in the state of Uttar Pradesh, there are about 1.18 million of them as per a census in 2019. Often times, these stray cattle wander into designated farmlands, wreaking havoc on the sown crops. In turn, this results in a catastrophic loss for the farmers, many of whom are dependent on the next harvest itself to make a living.
+
+* Keeping this in mind, we the members of the GDSC BBDITM have come up with a solution Farmer Vision. Farmer Vision is an Android application, that runs on one of two devices - a camera device and a client device. The camera device collects video feed from the back camera and is intended to be placed in such a way to obtain maximum coverage of the farm area. This footage is processed by our own TensorFlow Lite model, to detect any stray animal in sight.
+
+* The status of all camera devices is updated and stored using the Firebase Realtime Database, thereby making sure that all events are monitored in real time. Another device can be used as a client device using which the farmer can see the status of all cameras in real time. Using this information, he can take appropriate action such as removing the detected cattle and reporting to the concerned authorities about it.
+
+* To begin, the farmer has to sign in with his Google account on one or more camera devices. On camera devices, after sign in, simply select "Camera Device" to configure the device as a camera. Then, he must sign in on another device, acting as a "Client Device", with the same Google account. With this, the set up is complete and he can now monitor his fields from home.
 
 This application should be run on a physical Android device.
-
-![App example showing UI controls. Highlights a cat](https://storage.googleapis.com/download.tensorflow.org/tflite/examples/obj_detection_cat.gif)
-
-![App example showing UI controls. Highlights a cat, a book, and a couch.](screenshot1.png)
 
 ## Build the demo using Android Studio
 
 ### Prerequisites
 
 *   The **[Android Studio](https://developer.android.com/studio/index.html)**
-    IDE. This sample has been tested on Android Studio Bumblebee.
+    IDE.
 
 *   A physical Android device with a minimum OS version of SDK 24 (Android 7.0 -
     Nougat) with developer mode enabled. The process of enabling developer mode
@@ -45,16 +37,10 @@ This application should be run on a physical Android device.
 *   Open Android Studio. From the Welcome screen, select Open an existing
     Android Studio project.
 
-*   From the Open File or Project window that appears, navigate to and select
-    the tensorflow-lite/examples/object_detection/android_play_services
+*   From the Open File or Project window that appears, navigate to the repository
     directory. Click OK.
 
 *   If it asks you to do a Gradle Sync, click OK.
 
 *   With your Android device connected to your computer and developer mode
     enabled, click on the green Run arrow in Android Studio.
-
-### Models used
-
-Downloading, extraction, and placing the models into the assets folder is
-managed automatically by the download.gradle file.
