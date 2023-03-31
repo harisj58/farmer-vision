@@ -4,9 +4,9 @@ This project aims to protect farmer's crops from damage and destruction by keepi
 ## Project Details
 
 ### Tech Stack:
-Android Studio, Firebase, TensorFlow
+Android Studio with Kotlin, Firebase, TensorFlow
 <p align="left">
-<a href="https://developer.android.com/studio" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Android_Studio_Icon_3.6.svg/512px-Android_Studio_Icon_3.6.svg.png?20210301045217" alt="android_studio" width="40" height="40"/> </a><a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a><a href="https://www.tensorflow.org/" target="_blank" rel="noreferrer"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a></p>
+<a href="https://developer.android.com/studio" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Android_Studio_Icon_3.6.svg/512px-Android_Studio_Icon_3.6.svg.png?20210301045217" alt="android_studio" width="40" height="40"/> </a><a href="https://kotlinlang.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="kotlin" width="35" height="40"/> </a><a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a><a href="https://www.tensorflow.org/" target="_blank" rel="noreferrer"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-tensorflow-icon.svg" alt="tensorflow" width="40" height="40"/> </a></p>
 
 ### Description:
 
