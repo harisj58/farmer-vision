@@ -1,5 +1,6 @@
 # Farmer Vision 👨‍🌾👁 - Google Solution Challenge 2023
-This project aims to protect farmer's crops from damage and destruction by keeping a look out for any intruding cattle or livestock. This project is a collaboration among the members of <a href="https://www.linkedin.com/company/developer-student-clubs-bbdnitm1/" target="_blank" rel="noreferrer">GDSC BBDITM</a>: <a href="https://github.com/harisj58/" target="_blank" rel="noreferrer">Haris Javed</a>, <a href="https://github.com/abdullahnizami77" target="_blank" rel="noreferrer">Abdullah Nizami</a> and <a href="https://github.com/wbhima" target="_blank" rel="noreferrer">Anurag Pathak</a>.
+This project aims to protect farmer's crops from damage and destruction by keeping a look out for any intruding cattle or livestock. This project is a collaboration among the members of <a href="https://www.linkedin.com/company/developer-student-clubs-bbdnitm1/" target="_blank" rel="noreferrer">GDSC BBDITM</a>: <a href="https://github.com/harisj58/" target="_blank" rel="noreferrer">Haris Javed</a>, <a href="https://github.com/abdullahnizami77" target="_blank" rel="noreferrer">Abdullah Nizami</a> and <a href="https://github.com/wbhima" target="_blank" rel="noreferrer">Anurag Pathak</a> and <a href="https://github.com/17vijay2002" target="_blank" rel="noreferrer">Vijay Adhikari</a>.
+
 
 ## Project Details
 
