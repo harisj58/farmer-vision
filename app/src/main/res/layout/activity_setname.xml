@@ -6,28 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".Setname">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        app:title="Edit Camera Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:text="Button"
-        android:textSize="34dp"
+        android:text="Save Camera Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cameraname" />
 
     <EditText
         android:id="@+id/cameraname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="131dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="116dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="30dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_edit_pencil_24"
+        android:text="Camera Name"
+        android:drawablePadding="10dp"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/home_toolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
