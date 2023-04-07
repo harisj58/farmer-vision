@@ -1,25 +1,25 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class signup : AppCompatActivity() {
-    private lateinit var  edtEmail: EditText
-    private lateinit var  edtPassword: EditText
-    private lateinit var  edtName: EditText
-    private lateinit var  btnsignup: Button
+    private lateinit var edtEmail: EditText
+    private lateinit var edtPassword: EditText
+    private lateinit var edtName: EditText
+    private lateinit var btnsignup: Button
     private lateinit var btnlogin: TextView
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var mDbRef:DatabaseReference
+    private lateinit var mDbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,30 +32,48 @@ class signup : AppCompatActivity() {
         edtPassword = findViewById(R.id.password)
         btnsignup = findViewById(R.id.btnsignup)
         btnlogin = findViewById(R.id.gotologin)
-        btnsignup.setOnClickListener{
-            val email=edtEmail.text.toString()
-            val password =edtPassword.text.toString()
-            val name =edtName.text.toString()
-
-            Signup(email,password,name);
+        btnsignup.setOnClickListener {
+            val email = edtEmail.text.toString()
+            val password = edtPassword.text.toString()
+            val name = edtName.text.toString()
+            if (TextUtils.isEmpty(name)) {
+                Toast.makeText(this, "Enter name!", Toast.LENGTH_SHORT).show()
+                edtName.requestFocus()
+            } else if (TextUtils.isEmpty(email)) {
+                Toast.makeText(this, "Enter email!", Toast.LENGTH_SHORT).show()
+                edtEmail.requestFocus()
+            } else if (TextUtils.isEmpty(password)) {
+                Toast.makeText(this, "Enter password!", Toast.LENGTH_SHORT).show()
+                edtPassword.requestFocus()
+            } else if (password.length < 6) {
+                Toast.makeText(
+                    this,
+                    "Password too short! Enter minimum 6 characters!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                edtPassword.requestFocus()
+            } else Signup(email, password, name);
         }
-        btnlogin.setOnClickListener{
-            val intent = Intent(this,login::class.java)
+        btnlogin.setOnClickListener {
+            val intent = Intent(this, login::class.java)
             startActivity(intent)
         }
     }
-    private fun Signup(email:String,password:String,name:String) {
+
+    private fun Signup(email: String, password: String, name: String) {
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                val intent =  Intent(this@signup,Home::class.java)
-                startActivity(intent)
+                    val intent = Intent(this@signup, Home::class.java)
+                    startActivity(intent)
                 } else {
-                Toast.makeText(this@signup,"Some error occurred",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@signup, "Some error occurred", Toast.LENGTH_SHORT).show()
                 }
-        }}
-    private fun addUserToDatabase(name: String,email: String,uid:String) {
-        mDbRef=FirebaseDatabase.getInstance().getReference()
-        mDbRef.child("user").child(uid).setValue(User(name,email,uid))
+            }
+    }
+
+    private fun addUserToDatabase(name: String, email: String, uid: String) {
+        mDbRef = FirebaseDatabase.getInstance().getReference()
+        mDbRef.child("user").child(uid).setValue(User(name, email, uid))
     }
 }
