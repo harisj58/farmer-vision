@@ -26,4 +26,5 @@
     <color name="icFocused">#DDFFFFFF</color>
     <color name="icPressed">#AAFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange">#EB7134</color>
 </resources>
