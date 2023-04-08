@@ -69,14 +69,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        sharedPreferences=getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
-        boolean isFirstTime=sharedPreferences.getBoolean("firstTime", true);
-        if(isFirstTime)
-        {
-            SharedPreferences.Editor editor=sharedPreferences.edit();
-            editor.putBoolean("firstTime",false);
+        sharedPreferences = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
+        boolean isFirstTime = sharedPreferences.getBoolean("firstTime", true);
+        if (isFirstTime) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("firstTime", false);
             editor.commit();
-            Intent intent=new Intent(LoginActivity.this, OnboardingActivity.class);
+            Intent intent = new Intent(LoginActivity.this, OnboardingActivity.class);
             startActivity(intent);
             finish();
         }
@@ -88,16 +87,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        if(!isFirstTime)
+        if(mAuth.getCurrentUser()!=null)
         {
-            FirebaseUser mFireBaseUser = mAuth.getCurrentUser();
-            if (mFireBaseUser != null) {
-                Toast.makeText(LoginActivity.this, "You are logged in", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(LoginActivity.this, Home.class);
-                startActivity(i);
-            } else
-                Toast.makeText(LoginActivity.this, "Please login", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(LoginActivity.this, Home.class));
+            finish();
         }
+
 
     }
 }
