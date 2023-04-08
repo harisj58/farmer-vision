@@ -35,7 +35,7 @@
         android:inputType="textPersonName"
         android:background="@drawable/edit_text_bg"
         android:drawableLeft="@drawable/ic_edit_pencil_24"
-        android:text="Camera Name"
+        android:hint="Enter Camera Name"
         android:drawablePadding="10dp"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"

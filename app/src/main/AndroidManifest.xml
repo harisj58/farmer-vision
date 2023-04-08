@@ -16,6 +16,10 @@
         android:taskAffinity=""
         tools:ignore="AllowBackup">
         <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
+        <activity
             android:name=".Cameralist"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />

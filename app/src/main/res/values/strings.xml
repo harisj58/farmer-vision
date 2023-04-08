@@ -53,4 +53,10 @@
         <item>EfficientDet Lite2</item>
         <item>Stray Animal</item>
     </string-array>
+    <string name="first_slide">Maximize Your Harvest</string>
+    <string name="second_slide">Protect Your Farm</string>
+    <string name="third_slide">Just Relax</string>
+    <string name="description1">And deliver the best produce.</string>
+    <string name="description2">Our service secures your land.</string>
+    <string name="description3">Rest assured, our tech stays vigilant for you.</string>
 </resources>
