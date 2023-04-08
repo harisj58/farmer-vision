@@ -9,6 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -20,6 +22,7 @@ class signup : AppCompatActivity() {
     private lateinit var btnlogin: TextView
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
+    private var authStateListener: AuthStateListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +58,20 @@ class signup : AppCompatActivity() {
             } else Signup(email, password, name);
         }
         btnlogin.setOnClickListener {
-            val intent = Intent(this, login::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+        }
+        if (mAuth.currentUser != null) {
+            startActivity(Intent(this@signup, Home::class.java))
+        }
+
+        authStateListener = AuthStateListener {
+            val mFireBaseUser: FirebaseUser? = mAuth.currentUser
+            if (mFireBaseUser != null) {
+                Toast.makeText(this@signup, "You are logged in", Toast.LENGTH_SHORT).show()
+                val i = Intent(this@signup, MainActivity::class.java)
+                startActivity(i)
+            } else Toast.makeText(this@signup, "Please login", Toast.LENGTH_SHORT).show()
         }
     }
 
