@@ -36,16 +36,15 @@ import org.tensorflow.lite.task.gms.vision.detector.ObjectDetector
 
 
 class ObjectDetectorHelper(
-  var threshold: Float = 0.5f,
-  var numThreads: Int = 2,
+    var threshold: Float = 0.5f,
+    var numThreads: Int = 2,
 
-  var maxResults: Int = 3,
-  var currentDelegate: Int = 0,
-  var currentModel: Int = 0,
-  val context: Context,
-  val objectDetectorListener: DetectorListener,
-  var status: Boolean = false,
-//  val textView = findViewById<TextView>(R.id.status_detect)
+    var maxResults: Int = 3,
+    var currentDelegate: Int = 0,
+    var currentModel: Int = 0,
+    val context: Context,
+    val objectDetectorListener: DetectorListener,
+    var status: Boolean = false,
 ) {
 
     private val TAG = "ObjectDetectionHelper"
@@ -66,9 +65,11 @@ class ObjectDetectorHelper(
             TfLiteVision.initialize(context, optionsBuilder.build())
         }.addOnSuccessListener {
             objectDetectorListener.onInitialized()
-        }.addOnFailureListener{
-            objectDetectorListener.onError("TfLiteVision failed to initialize: "
-                    + it.message)
+        }.addOnFailureListener {
+            objectDetectorListener.onError(
+                "TfLiteVision failed to initialize: "
+                        + it.message
+            )
         }
     }
 
@@ -160,8 +161,8 @@ class ObjectDetectorHelper(
 
         val results = objectDetector?.detect(tensorImage)
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
-        status = results?.isEmpty()==true
-        fun getDeviceTd(context: Context) : String? {
+        status = results?.isEmpty() == true
+        fun getDeviceTd(context: Context): String? {
             return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
         }
 
@@ -172,16 +173,16 @@ class ObjectDetectorHelper(
             context.contentResolver,
             Settings.Secure.ANDROID_ID
         )
-var sts=""
-        var cnam=""
-        if(status) {
+        var sts = ""
+        var cnam = ""
+        if (status) {
             val rootRef = FirebaseDatabase.getInstance().reference
             val uidRef = rootRef.child("name").child(currentuser)
             uidRef.get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val snapshot = task.result
                     cnam = snapshot.child(deviceId).getValue(String::class.java).toString()
-                    sts= "$cnam is Clear"
+                    sts = "$cnam is Clear"
                     mDbRef.child(currentuser).child(deviceId).child("status")
                         .setValue(sts)
                 } else {
@@ -190,15 +191,14 @@ var sts=""
             }
 //            status_detect.text = "No object detected."
             Log.i("ResultGenerated", "No object detected.")
-        }
-        else {
+        } else {
             val rootRef = FirebaseDatabase.getInstance().reference
             val uidRef = rootRef.child("name").child(currentuser)
             uidRef.get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val snapshot = task.result
                     cnam = snapshot.child(deviceId).getValue(String::class.java).toString()
-                    sts= "$cnam has Animal"
+                    sts = "$cnam has Animal"
                     mDbRef.child(currentuser).child(deviceId).child("status")
                         .setValue(sts)
                 } else {
@@ -210,20 +210,21 @@ var sts=""
             Log.i("ResultGenerated", "Object in sight.")
         }
         objectDetectorListener.onResults(
-          results,
-          inferenceTime,
-          tensorImage.height,
-          tensorImage.width)
+            results,
+            inferenceTime,
+            tensorImage.height,
+            tensorImage.width
+        )
     }
 
     interface DetectorListener {
         fun onInitialized()
         fun onError(error: String)
         fun onResults(
-          results: MutableList<Detection>?,
-          inferenceTime: Long,
-          imageHeight: Int,
-          imageWidth: Int
+            results: MutableList<Detection>?,
+            inferenceTime: Long,
+            imageHeight: Int,
+            imageWidth: Int
         )
     }
 

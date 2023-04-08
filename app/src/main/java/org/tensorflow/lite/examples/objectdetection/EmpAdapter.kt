@@ -6,21 +6,22 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EmpAdapter( private val empList: ArrayList<EmployeeModel>) :
-RecyclerView.Adapter<EmpAdapter.ViewHolder>() {
+class EmpAdapter(private val empList: ArrayList<EmployeeModel>) :
+    RecyclerView.Adapter<EmpAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
-    interface onItemClickListener{
+    interface onItemClickListener {
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(clickListener: onItemClickListener){
+    fun setOnItemClickListener(clickListener: onItemClickListener) {
         mListener = clickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.camera_item, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.camera_item, parent, false)
         return ViewHolder(itemView, mListener)
     }
 
@@ -33,9 +34,10 @@ RecyclerView.Adapter<EmpAdapter.ViewHolder>() {
         return empList.size
     }
 
-    class ViewHolder(itemView: View, clickListener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, clickListener: onItemClickListener) :
+        RecyclerView.ViewHolder(itemView) {
 
-        val tvEmpName : TextView = itemView.findViewById(R.id.Status)
+        val tvEmpName: TextView = itemView.findViewById(R.id.Status)
 
         init {
             itemView.setOnClickListener {

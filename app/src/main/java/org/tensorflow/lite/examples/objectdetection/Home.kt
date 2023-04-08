@@ -1,9 +1,9 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class Home : AppCompatActivity() {
@@ -34,7 +34,7 @@ class Home : AppCompatActivity() {
             val intent = Intent(this@Home, Setname::class.java)
             startActivity(intent)
         }
-        logout.setOnClickListener{
+        logout.setOnClickListener {
             mAuth.signOut()
             startActivity(Intent(this@Home, LoginActivity::class.java))
         }

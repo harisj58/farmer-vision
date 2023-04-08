@@ -30,12 +30,15 @@ import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBind
 class MainActivity : AppCompatActivity() {
 
     private lateinit var activityMainBinding: ActivityMainBinding
-var deviceId =""
+    var deviceId = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
-        deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+        deviceId = Settings.Secure.getString(
+            getApplicationContext().getContentResolver(),
+            Settings.Secure.ANDROID_ID
+        );
         Toast.makeText(this@MainActivity, deviceId, Toast.LENGTH_SHORT).show()
 
     }

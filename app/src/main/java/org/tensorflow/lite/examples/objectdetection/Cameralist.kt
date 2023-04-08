@@ -40,15 +40,15 @@ class Cameralist : AppCompatActivity() {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 empList.clear()
-                if (snapshot.exists()){
-                    for (empSnap in snapshot.children){
+                if (snapshot.exists()) {
+                    for (empSnap in snapshot.children) {
                         val empData = empSnap.getValue(EmployeeModel::class.java)
                         empList.add(empData!!)
                     }
                     val mAdapter = EmpAdapter(empList)
                     empRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : EmpAdapter.onItemClickListener{
+                    mAdapter.setOnItemClickListener(object : EmpAdapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
 
                         }

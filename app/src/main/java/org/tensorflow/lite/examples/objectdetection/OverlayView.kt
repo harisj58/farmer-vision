@@ -17,17 +17,13 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
-import android.graphics.RectF
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import java.util.LinkedList
-import kotlin.math.max
 import org.tensorflow.lite.task.gms.vision.detector.Detection
+import java.util.*
+import kotlin.math.max
 
 class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -104,13 +100,13 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
     }
 
     fun setResults(
-      detectionResults: MutableList<Detection>,
-      imageHeight: Int,
-      imageWidth: Int,
+        detectionResults: MutableList<Detection>,
+        imageHeight: Int,
+        imageWidth: Int,
     ) {
         results = detectionResults
 
-          // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
+        // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
         // the size that the captured images will be displayed.
         scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
     }
