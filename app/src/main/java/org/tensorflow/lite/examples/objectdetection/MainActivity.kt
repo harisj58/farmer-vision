@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var activityMainBinding: ActivityMainBinding
     var deviceId = ""
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,7 +41,11 @@ class MainActivity : AppCompatActivity() {
             Settings.Secure.ANDROID_ID
         );
         Toast.makeText(this@MainActivity, deviceId, Toast.LENGTH_SHORT).show()
-
+        //Toolbar
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationOnClickListener { finish() }
     }
 
     override fun onBackPressed() {
@@ -48,8 +53,25 @@ class MainActivity : AppCompatActivity() {
             // Workaround for Android Q memory leak issue in IRequestFinishCallback$Stub.
             // (https://issuetracker.google.com/issues/139738913)
             finishAfterTransition()
-        } else {
-            super.onBackPressed()
         }
+        else if (isTaskRoot
+            && supportFragmentManager.primaryNavigationFragment
+                ?.childFragmentManager?.backStackEntryCount == 0
+            && supportFragmentManager.backStackEntryCount == 0
+        ) {
+            finishAfterTransition()
+        }
+        else if (onBackPressedDispatcher.hasEnabledCallbacks()) {
+            super.onBackPressed()
+        } else {
+            finishAfterTransition()
+        }
+    }
+
+    override fun onDestroy() {
+        if (isTaskRoot) {
+            finishAfterTransition()
+        }
+        super.onDestroy()
     }
 }

@@ -53,7 +53,7 @@
             android:icon="@mipmap/ic_launcher"
             android:resizeableActivity="true"
             android:rotationAnimation="seamless"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             tools:targetApi="O">
 
             <!-- Main app intent filter -->
