@@ -18,7 +18,7 @@
         <activity
             android:name=".OnboardingActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".Cameralist"
             android:exported="false"
@@ -38,11 +38,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".signup"
+            android:name=".SignupActivity"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Home"
+            android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity

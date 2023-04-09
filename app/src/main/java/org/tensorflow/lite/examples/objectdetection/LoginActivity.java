@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (!task.isSuccessful())
                                 Toast.makeText(LoginActivity.this, "Login error, please login again", Toast.LENGTH_SHORT).show();
                             else {
-                                Intent intToHome = new Intent(LoginActivity.this, Home.class);
+                                Intent intToHome = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intToHome);
                             }
                         }
@@ -83,13 +83,13 @@ public class LoginActivity extends AppCompatActivity {
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, signup.class));
+                startActivity(new Intent(LoginActivity.this, SignupActivity.class));
             }
         });
 
         if(mAuth.getCurrentUser()!=null)
         {
-            startActivity(new Intent(LoginActivity.this, Home.class));
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             finish();
         }
 
