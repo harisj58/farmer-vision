@@ -2,7 +2,6 @@ package org.tensorflow.lite.examples.objectdetection;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         setCamName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, Setname.class));
+                startActivity(new Intent(HomeActivity.this, SetName.class));
             }
         });
 

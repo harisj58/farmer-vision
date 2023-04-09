@@ -20,11 +20,11 @@
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Cameralist"
+            android:name=".CameraList"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Setname"
+            android:name=".SetName"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity

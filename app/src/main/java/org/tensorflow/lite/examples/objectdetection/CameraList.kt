@@ -1,6 +1,7 @@
 package org.tensorflow.lite.examples.objectdetection
 
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,12 +12,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 
-class Cameralist : AppCompatActivity() {
+class CameraList : AppCompatActivity() {
     private lateinit var empRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
     private lateinit var empList: ArrayList<EmployeeModel>
     private lateinit var dbRef: DatabaseReference
     private lateinit var toolbar: Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +42,12 @@ class Cameralist : AppCompatActivity() {
         empRecyclerView.visibility = View.GONE
         val currentuser = FirebaseAuth.getInstance().currentUser!!.uid
 
-        dbRef = FirebaseDatabase.getInstance().getReference(currentuser)
+        val deviceId = Settings.Secure.getString(
+            this.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+
+        dbRef = FirebaseDatabase.getInstance().reference.child("user").child(currentuser).child("cameras")
 
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

@@ -177,13 +177,13 @@ class ObjectDetectorHelper(
         var cnam = ""
         if (status) {
             val rootRef = FirebaseDatabase.getInstance().reference
-            val uidRef = rootRef.child("name").child(currentuser)
+            val uidRef = rootRef.child("user").child(currentuser).child("cameras").child(deviceId)
             uidRef.get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val snapshot = task.result
-                    cnam = snapshot.child(deviceId).getValue(String::class.java).toString()
+                    cnam = snapshot.child("name").getValue(String::class.java).toString()
                     sts = "$cnam is Clear"
-                    mDbRef.child(currentuser).child(deviceId).child("status")
+                    mDbRef.child("user").child(currentuser).child("cameras").child(deviceId).child("status")
                         .setValue(sts)
                 } else {
                     Log.d("TAG", task.exception!!.message!!) //Don't ignore potential errors!
@@ -193,13 +193,13 @@ class ObjectDetectorHelper(
             Log.i("ResultGenerated", "No object detected.")
         } else {
             val rootRef = FirebaseDatabase.getInstance().reference
-            val uidRef = rootRef.child("name").child(currentuser)
+            val uidRef = rootRef.child("user").child(currentuser).child("cameras").child(deviceId)
             uidRef.get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val snapshot = task.result
-                    cnam = snapshot.child(deviceId).getValue(String::class.java).toString()
+                    cnam = snapshot.child("name").getValue(String::class.java).toString()
                     sts = "$cnam has Animal"
-                    mDbRef.child(currentuser).child(deviceId).child("status")
+                    mDbRef.child("user").child(currentuser).child("cameras").child(deviceId).child("status")
                         .setValue(sts)
                 } else {
                     Log.d("TAG", task.exception!!.message!!) //Don't ignore potential errors!
