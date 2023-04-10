@@ -44,11 +44,6 @@ class MainActivity : AppCompatActivity(), CameraNameDialog.CameraNameDialogListe
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
-        deviceId = Settings.Secure.getString(
-            getApplicationContext().getContentResolver(),
-            Settings.Secure.ANDROID_ID
-        )
-        Toast.makeText(this@MainActivity, deviceId, Toast.LENGTH_SHORT).show()
         //Toolbar
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -61,6 +56,7 @@ class MainActivity : AppCompatActivity(), CameraNameDialog.CameraNameDialogListe
             // Workaround for Android Q memory leak issue in IRequestFinishCallback$Stub.
             // (https://issuetracker.google.com/issues/139738913)
             finishAfterTransition()
+            destroyCamFromDatabase()
         }
         else if (isTaskRoot
             && supportFragmentManager.primaryNavigationFragment
@@ -68,19 +64,24 @@ class MainActivity : AppCompatActivity(), CameraNameDialog.CameraNameDialogListe
             && supportFragmentManager.backStackEntryCount == 0
         ) {
             finishAfterTransition()
+            destroyCamFromDatabase()
         }
         else if (onBackPressedDispatcher.hasEnabledCallbacks()) {
             super.onBackPressed()
+            destroyCamFromDatabase()
         } else {
             finishAfterTransition()
+            destroyCamFromDatabase()
         }
     }
 
     override fun onDestroy() {
         if (isTaskRoot) {
             finishAfterTransition()
+            destroyCamFromDatabase()
         }
         super.onDestroy()
+        destroyCamFromDatabase()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -111,5 +112,18 @@ class MainActivity : AppCompatActivity(), CameraNameDialog.CameraNameDialogListe
         mDbRef.child("user").child(accountUID).child("cameras").child(deviceId).child("name")
             .setValue(new_name)
 
+    }
+
+    fun destroyCamFromDatabase() {
+        val accountUID = FirebaseAuth.getInstance().currentUser!!.uid
+        val deviceId = Settings.Secure.getString(
+            this.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+
+        var dbRef = FirebaseDatabase.getInstance().reference.child("user").child(accountUID)
+            .child("cameras")
+
+        dbRef.child(deviceId).removeValue()
     }
 }

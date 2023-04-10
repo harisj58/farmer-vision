@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import org.gdscbbditm.farmervision.R
 
 
 class CameraList : AppCompatActivity() {
@@ -41,14 +44,16 @@ class CameraList : AppCompatActivity() {
     private fun getEmployeesData() {
 
         empRecyclerView.visibility = View.GONE
-        val currentuser = FirebaseAuth.getInstance().currentUser!!.uid
+        val accountUID = FirebaseAuth.getInstance().currentUser!!.uid
 
         val deviceId = Settings.Secure.getString(
             this.contentResolver,
             Settings.Secure.ANDROID_ID
         )
 
-        dbRef = FirebaseDatabase.getInstance().reference.child("user").child(currentuser).child("cameras")
+        dbRef = FirebaseDatabase.getInstance().reference.child("user").child(accountUID).child("cameras")
+
+        dbRef.child(deviceId).removeValue()
 
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

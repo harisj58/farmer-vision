@@ -182,7 +182,7 @@ class ObjectDetectorHelper(
                 if (task.isSuccessful) {
                     val snapshot = task.result
                     cnam = snapshot.child("name").getValue(String::class.java).toString()
-                    sts = "$cnam is Clear"
+                    sts = "$cnam: No intrusion"
                     mDbRef.child("user").child(currentuser).child("cameras").child(deviceId).child("status")
                         .setValue(sts)
                 } else {
@@ -198,7 +198,7 @@ class ObjectDetectorHelper(
                 if (task.isSuccessful) {
                     val snapshot = task.result
                     cnam = snapshot.child("name").getValue(String::class.java).toString()
-                    sts = "$cnam has Animal"
+                    sts = "$cnam: Intrusion detected"
                     mDbRef.child("user").child(currentuser).child("cameras").child(deviceId).child("status")
                         .setValue(sts)
                 } else {

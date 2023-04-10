@@ -16,39 +16,39 @@
 package org.gdscbbditm.farmervision.fragments
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
-import androidx.camera.core.AspectRatio
-import androidx.camera.core.Camera
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.*
 import androidx.camera.core.ImageAnalysis.OUTPUT_IMAGE_FORMAT_RGBA_8888
-import androidx.camera.core.ImageProxy
-import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import java.util.LinkedList
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import org.gdscbbditm.farmervision.ObjectDetectorHelper
 import org.gdscbbditm.farmervision.R
 import org.gdscbbditm.farmervision.databinding.FragmentCameraBinding
 import org.tensorflow.lite.task.gms.vision.detector.Detection
+import java.util.*
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
-class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener {
+class CameraFragment() : Fragment(), ObjectDetectorHelper.DetectorListener {
 
     private val TAG = "CameraFragment"
 
     private var _fragmentCameraBinding: FragmentCameraBinding? = null
+
 
     private val fragmentCameraBinding
         get() = _fragmentCameraBinding!!
@@ -76,9 +76,22 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener {
     override fun onDestroyView() {
         _fragmentCameraBinding = null
         super.onDestroyView()
-
         // Shut down our background executor
         cameraExecutor.shutdown()
+        destroyCamFromDatabase()
+
+    }
+
+    fun destroyCamFromDatabase() {
+        val accountUID = FirebaseAuth.getInstance().currentUser!!.uid
+        val deviceId = Settings.Secure.getString(
+            context?.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+        var dbRef = FirebaseDatabase.getInstance().reference.child("user").child(accountUID)
+            .child("cameras")
+
+        dbRef.child(deviceId).removeValue()
     }
 
     override fun onCreateView(

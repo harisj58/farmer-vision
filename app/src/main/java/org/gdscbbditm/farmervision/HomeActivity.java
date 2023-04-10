@@ -2,6 +2,7 @@ package org.gdscbbditm.farmervision;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +43,8 @@ public class HomeActivity extends AppCompatActivity {
         camMode = findViewById(R.id.act1);
         camList = findViewById(R.id.act2);
         greeting = findViewById(R.id.textView3);
+
+        destroyCamFromDatabase();
 
         camMode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,5 +116,16 @@ public class HomeActivity extends AppCompatActivity {
 
     private void addUserToDatabase(String name, String email, String uid) {
         mDbRef.child("user").child(uid).setValue(new User(name, email, uid));
+    }
+
+    private void destroyCamFromDatabase() {
+        String accountUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String deviceId = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("user").child(accountUID)
+                .child("cameras");
+
+        dbRef.child(deviceId).removeValue();
     }
 }
