@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.gdscbbditm.farmervision">
     <!-- Enable instant app support -->
-    <dist:module dist:instant="true" /> <!-- Declare features -->
-    <uses-feature android:name="android.hardware.camera" /> <!-- Declare permissions -->
+    <dist:module dist:instant="true" />
+    <!-- Declare features -->
+    <uses-feature android:name="android.hardware.camera" />
+    <!-- Declare permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
