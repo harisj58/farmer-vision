@@ -47,11 +47,11 @@
     </string-array>
 
     <string-array name="models_spinner_titles">
+        <item>Stray Animal</item>
         <item>MobileNet V1</item>
         <item>EfficientDet Lite0</item>
         <item>EfficientDet Lite1</item>
         <item>EfficientDet Lite2</item>
-        <item>Stray Animal</item>
     </string-array>
     <string name="first_slide">Maximize Your Harvest</string>
     <string name="second_slide">Protect Your Farm</string>
