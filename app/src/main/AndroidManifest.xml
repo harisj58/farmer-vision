@@ -16,19 +16,19 @@
         android:taskAffinity=""
         tools:ignore="AllowBackup">
         <activity
-            android:name="org.gdscbbditm.farmervision.OnboardingActivity"
+            android:name=".OnboardingActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name="org.gdscbbditm.farmervision.CameraList"
+            android:name=".CameraList"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name="org.gdscbbditm.farmervision.SetName"
+            android:name=".SetName"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name="org.gdscbbditm.farmervision.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
@@ -38,15 +38,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.gdscbbditm.farmervision.SignupActivity"
+            android:name=".SignupActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name="org.gdscbbditm.farmervision.HomeActivity"
+            android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name="org.gdscbbditm.farmervision.MainActivity"
+            android:name=".MainActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
             android:exported="true"

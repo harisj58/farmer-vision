@@ -8,6 +8,18 @@
         android:icon="@drawable/ic_logout_24"
         app:showAsAction="always"
     ></item>
+<!--    <item-->
+<!--        android:id="@+id/menu_info"-->
+<!--        android:title="About"-->
+<!--        android:icon="@drawable/ic_info_24"-->
+<!--        app:showAsAction="never"-->
+<!--        ></item>-->
+<!--    <item-->
+<!--        android:id="@+id/menu_settings"-->
+<!--        android:title="Settings"-->
+<!--        android:icon="@drawable/ic_settings_24"-->
+<!--        app:showAsAction="never"-->
+<!--        ></item>-->
 
 
 </menu>

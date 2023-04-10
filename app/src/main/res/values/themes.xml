@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="Theme.Farmervision.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Farmervision.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Farmervision.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.Farmervision" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
