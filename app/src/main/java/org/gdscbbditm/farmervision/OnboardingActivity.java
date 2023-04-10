@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection;
+package org.gdscbbditm.farmervision;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -11,9 +11,10 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.gdscbbditm.farmervision.R;
 
 public class OnboardingActivity extends AppCompatActivity {
 

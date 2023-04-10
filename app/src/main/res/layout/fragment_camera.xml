@@ -26,7 +26,7 @@
         android:layout_height="match_parent"
         app:scaleType="fillStart"/>
 
-    <org.tensorflow.lite.examples.objectdetection.OverlayView
+    <org.gdscbbditm.farmervision.OverlayView
         android:id="@+id/overlay"
         android:layout_height="match_parent"
         android:layout_width="match_parent" />

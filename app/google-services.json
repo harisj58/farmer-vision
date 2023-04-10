@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:421926804354:android:d4c4836bb1445a0f540d9b",
+        "android_client_info": {
+          "package_name": "org.gdscbbditm.farmervision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421926804354-h33s73k1qv6or6oam92csd9bv8naa70c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.gdscbbditm.farmervision",
+            "certificate_hash": "2c0adadf07cbe0f8b085e8ab0d5c8faae347558b"
+          }
+        },
+        {
+          "client_id": "421926804354-uvf1v6mi7fga5q7mcjcp7157t4hbktvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT5Tupvsvw8P_h1CZ0akrGqhWUcKxkX_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421926804354-uvf1v6mi7fga5q7mcjcp7157t4hbktvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:421926804354:android:76f3af1310a8cc86540d9b",
         "android_client_info": {
           "package_name": "org.tensorflow.lite.examples.objectdetection"

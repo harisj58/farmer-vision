@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision.examples.objectdetection
 
 import android.content.res.AssetManager
 import android.graphics.Bitmap
@@ -22,6 +22,7 @@ import android.graphics.BitmapFactory
 import android.graphics.RectF
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import org.gdscbbditm.farmervision.ObjectDetectorHelper
 import java.io.InputStream
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

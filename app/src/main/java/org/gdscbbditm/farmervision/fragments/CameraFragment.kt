@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.tensorflow.lite.examples.objectdetection.fragments
+package org.gdscbbditm.farmervision.fragments
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
@@ -39,9 +39,9 @@ import androidx.navigation.Navigation
 import java.util.LinkedList
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import org.tensorflow.lite.examples.objectdetection.ObjectDetectorHelper
-import org.tensorflow.lite.examples.objectdetection.R
-import org.tensorflow.lite.examples.objectdetection.databinding.FragmentCameraBinding
+import org.gdscbbditm.farmervision.ObjectDetectorHelper
+import org.gdscbbditm.farmervision.R
+import org.gdscbbditm.farmervision.databinding.FragmentCameraBinding
 import org.tensorflow.lite.task.gms.vision.detector.Detection
 
 class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener {
@@ -69,7 +69,7 @@ class CameraFragment : Fragment(), ObjectDetectorHelper.DetectorListener {
         // user could have removed them while the app was in paused state.
         if (!PermissionsFragment.hasPermissions(requireContext())) {
             Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate(CameraFragmentDirections.actionCameraToPermissions())
+                .navigate(org.gdscbbditm.farmervision.fragments.CameraFragmentDirections.actionCameraToPermissions())
         }
     }
 

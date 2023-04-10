@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision
 
 class User {
     var name: String? = null

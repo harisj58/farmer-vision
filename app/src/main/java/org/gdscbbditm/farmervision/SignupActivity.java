@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection;
+package org.gdscbbditm.farmervision;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
+
+import org.gdscbbditm.farmervision.R;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -24,8 +25,6 @@ public class SignupActivity extends AppCompatActivity {
     private Button btnsignup;
     private TextView btnlogin;
     private FirebaseAuth mAuth;
-
-    private DatabaseReference mDbRef;
     private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override

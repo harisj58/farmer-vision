@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision
 
 import android.os.Bundle
 import android.provider.Settings
@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import org.gdscbbditm.farmervision.R
 
 class SetName : AppCompatActivity() {
     private lateinit var name: EditText

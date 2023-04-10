@@ -35,7 +35,7 @@
             android:keepScreenOn="true"
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph"
-            tools:context=".MainActivity" />
+            tools:context="org.gdscbbditm.farmervision.MainActivity" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

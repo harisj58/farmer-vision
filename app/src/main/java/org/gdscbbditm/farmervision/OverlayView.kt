@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import org.gdscbbditm.farmervision.R
 import org.tensorflow.lite.task.gms.vision.detector.Detection
 import java.util.*
 import kotlin.math.max
@@ -89,8 +90,8 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             canvas.drawRect(
                 left,
                 top,
-                left + textWidth + Companion.BOUNDING_RECT_TEXT_PADDING,
-                top + textHeight + Companion.BOUNDING_RECT_TEXT_PADDING,
+                left + textWidth + BOUNDING_RECT_TEXT_PADDING,
+                top + textHeight + BOUNDING_RECT_TEXT_PADDING,
                 textBackgroundPaint
             )
 

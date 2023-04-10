@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision
 
 import android.os.Build
 import android.os.Bundle
@@ -27,7 +27,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
+import org.gdscbbditm.farmervision.R
+import org.gdscbbditm.farmervision.databinding.ActivityMainBinding
 
 /**
  * Main entry point into our app. This app follows the single-activity pattern, and all

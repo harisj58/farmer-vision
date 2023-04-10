@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision
 
 import android.os.Bundle
 import android.provider.Settings
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import org.gdscbbditm.farmervision.R
 
 
 class CameraList : AppCompatActivity() {

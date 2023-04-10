@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection
+package org.gdscbbditm.farmervision
 
 
 data class EmployeeModel(

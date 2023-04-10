@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.objectdetection;
+package org.gdscbbditm.farmervision;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
+import org.gdscbbditm.farmervision.R;
 
 public class LoginActivity extends AppCompatActivity {
 

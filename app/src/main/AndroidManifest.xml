@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.tensorflow.lite.examples.objectdetection">
+    package="org.gdscbbditm.farmervision">
     <!-- Enable instant app support -->
     <dist:module dist:instant="true" /> <!-- Declare features -->
     <uses-feature android:name="android.hardware.camera" /> <!-- Declare permissions -->
@@ -16,19 +16,19 @@
         android:taskAffinity=""
         tools:ignore="AllowBackup">
         <activity
-            android:name=".OnboardingActivity"
+            android:name="org.gdscbbditm.farmervision.OnboardingActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".CameraList"
+            android:name="org.gdscbbditm.farmervision.CameraList"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".SetName"
+            android:name="org.gdscbbditm.farmervision.SetName"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name="org.gdscbbditm.farmervision.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
@@ -38,15 +38,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name="org.gdscbbditm.farmervision.SignupActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".HomeActivity"
+            android:name="org.gdscbbditm.farmervision.HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name="org.gdscbbditm.farmervision.MainActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
             android:exported="true"
