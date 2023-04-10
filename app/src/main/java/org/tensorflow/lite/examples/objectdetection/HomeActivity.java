@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         camList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, Cameralist.class));
+                startActivity(new Intent(HomeActivity.this, CameraList.class));
             }
         });
 

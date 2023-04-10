@@ -19,19 +19,26 @@ package org.tensorflow.lite.examples.objectdetection
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
 
 /**
  * Main entry point into our app. This app follows the single-activity pattern, and all
  * functionality is implemented in the form of fragments.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CameraNameDialog.CameraNameDialogListener {
 
     private lateinit var activityMainBinding: ActivityMainBinding
     var deviceId = ""
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    private val mAuth: FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -73,5 +80,35 @@ class MainActivity : AppCompatActivity() {
             finishAfterTransition()
         }
         super.onDestroy()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.edit_cam) {
+            openDialog();
+        }
+        return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.set_cam_menu, menu)
+        return true
+    }
+
+    fun openDialog() {
+        val cameraNameDialog = CameraNameDialog()
+        cameraNameDialog.show(supportFragmentManager, "example dialog")
+    }
+
+    override fun applyTexts(cameraname: String?) {
+        Log.i("NewCameraName", cameraname!!)
+        var deviceId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
+        var mDbRef: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+//        Toast.makeText(this@Setname, deviceId, Toast.LENGTH_SHORT).show()
+        val accountUID = FirebaseAuth.getInstance().currentUser!!.uid
+        var new_name = cameraname.toString()
+        mDbRef.child("user").child(accountUID).child("cameras").child(deviceId).child("name")
+            .setValue(new_name)
+
     }
 }
