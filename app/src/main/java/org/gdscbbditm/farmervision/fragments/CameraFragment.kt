@@ -79,7 +79,10 @@ class CameraFragment() : Fragment(), ObjectDetectorHelper.DetectorListener {
         // Shut down our background executor
         cameraExecutor.shutdown()
         destroyCamFromDatabase()
-
+        destroyCamFromDatabase()
+        destroyCamFromDatabase()
+        destroyCamFromDatabase()
+        destroyCamFromDatabase()
     }
 
     fun destroyCamFromDatabase() {
@@ -340,5 +343,10 @@ class CameraFragment() : Fragment(), ObjectDetectorHelper.DetectorListener {
         }
 
         fragmentCameraBinding.progressCircular.visibility = View.GONE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        destroyCamFromDatabase()
     }
 }

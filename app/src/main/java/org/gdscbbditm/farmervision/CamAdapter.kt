@@ -5,10 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import org.gdscbbditm.farmervision.R
 
-class EmpAdapter(private val empList: ArrayList<EmployeeModel>) :
-    RecyclerView.Adapter<EmpAdapter.ViewHolder>() {
+class CamAdapter(private val empList: ArrayList<CamModel>) :
+    RecyclerView.Adapter<CamAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 

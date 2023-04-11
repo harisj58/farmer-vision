@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -19,7 +15,7 @@ import com.google.firebase.database.*
 class CameraList : AppCompatActivity() {
     private lateinit var empRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
-    private lateinit var empList: ArrayList<EmployeeModel>
+    private lateinit var empList: ArrayList<CamModel>
     private lateinit var dbRef: DatabaseReference
     private lateinit var toolbar: Toolbar
 
@@ -35,7 +31,7 @@ class CameraList : AppCompatActivity() {
         empRecyclerView.layoutManager = LinearLayoutManager(this)
         empRecyclerView.setHasFixedSize(true)
 
-        empList = arrayListOf<EmployeeModel>()
+        empList = arrayListOf<CamModel>()
 
         getEmployeesData()
 
@@ -60,13 +56,13 @@ class CameraList : AppCompatActivity() {
                 empList.clear()
                 if (snapshot.exists()) {
                     for (empSnap in snapshot.children) {
-                        val empData = empSnap.getValue(EmployeeModel::class.java)
+                        val empData = empSnap.getValue(CamModel::class.java)
                         empList.add(empData!!)
                     }
-                    val mAdapter = EmpAdapter(empList)
+                    val mAdapter = CamAdapter(empList)
                     empRecyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListener(object : EmpAdapter.onItemClickListener {
+                    mAdapter.setOnItemClickListener(object : CamAdapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
 
                         }

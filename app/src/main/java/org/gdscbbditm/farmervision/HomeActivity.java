@@ -118,6 +118,12 @@ public class HomeActivity extends AppCompatActivity {
         mDbRef.child("user").child(uid).setValue(new User(name, email, uid));
     }
 
+    @Override
+    protected void onResume() {
+        destroyCamFromDatabase();
+        super.onResume();
+    }
+
     private void destroyCamFromDatabase() {
         String accountUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String deviceId = Settings.Secure.getString(this.getContentResolver(),

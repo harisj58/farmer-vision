@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cameralist">
+    tools:context=".CameraList">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/home_toolbar"
@@ -30,4 +30,5 @@
         app:layout_constraintTop_toBottomOf="@+id/home_toolbar"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/camera_item" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

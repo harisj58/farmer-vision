@@ -1,7 +1,7 @@
 package org.gdscbbditm.farmervision
 
 
-data class EmployeeModel(
+data class CamModel(
     var status: String? = null
 
 )
