@@ -1,10 +1,13 @@
 package org.gdscbbditm.farmervision;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,13 +50,13 @@ public class SignupActivity extends AppCompatActivity {
                 String password = edtPassword.getText().toString();
 
                 if(name.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "Enter name!", Toast.LENGTH_SHORT).show();
+                    edtName.setError("Please enter name");
                     edtName.requestFocus();
                 } else if(email.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "Enter email!", Toast.LENGTH_SHORT).show();
+                    edtEmail.setError("Please enter email");
                     edtEmail.requestFocus();
                 } else if(password.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "Enter password!", Toast.LENGTH_SHORT).show();
+                    edtPassword.setError("Please enter password");
                     edtPassword.requestFocus();
                 } else if(password.length()<6) {
                     Toast.makeText(SignupActivity.this, "Password too short! Enter minimum 6 characters!", Toast.LENGTH_SHORT).show();

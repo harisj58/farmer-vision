@@ -1,8 +1,11 @@
 package org.gdscbbditm.farmervision;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +37,8 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView greeting;
     private DatabaseReference mDbRef;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +52,9 @@ public class HomeActivity extends AppCompatActivity {
         camMode = findViewById(R.id.act1);
         camList = findViewById(R.id.act2);
         greeting = findViewById(R.id.textView3);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
 
         destroyCamFromDatabase();
 
@@ -61,7 +73,8 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         mDbRef = FirebaseDatabase.getInstance().getReference();
-        String uid = mAuth.getCurrentUser().getUid();
+
+        String uid = uid = mAuth.getCurrentUser().getUid();
 
 
         Bundle extras = getIntent().getExtras();
