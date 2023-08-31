@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.gdscbbditm.farmervision.R;
-
 public class OnboardingActivity extends AppCompatActivity {
 
     ViewPager viewPager;

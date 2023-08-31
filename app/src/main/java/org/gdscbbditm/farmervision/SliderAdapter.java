@@ -11,8 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
-import org.gdscbbditm.farmervision.R;
-
 public class SliderAdapter extends PagerAdapter {
     Context context;
     LayoutInflater layoutInflater;

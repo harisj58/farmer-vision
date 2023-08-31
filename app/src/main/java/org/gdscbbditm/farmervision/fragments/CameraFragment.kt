@@ -16,7 +16,6 @@
 package org.gdscbbditm.farmervision.fragments
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -51,7 +50,8 @@ class CameraFragment() : Fragment(), ObjectDetectorHelper.DetectorListener {
 
 
     private val fragmentCameraBinding
-        get() = _fragmentCameraBinding!!
+
+    get() = _fragmentCameraBinding!!
 
     private lateinit var objectDetectorHelper: ObjectDetectorHelper
     private lateinit var bitmapBuffer: Bitmap
@@ -310,18 +310,18 @@ class CameraFragment() : Fragment(), ObjectDetectorHelper.DetectorListener {
       imageWidth: Int
     ) {
         activity?.runOnUiThread {
-            fragmentCameraBinding.bottomSheetLayout.inferenceTimeVal.text =
+            fragmentCameraBinding?.bottomSheetLayout?.inferenceTimeVal?.text =
                 String.format("%d ms", inferenceTime)
 
             // Pass necessary information to OverlayView for drawing on the canvas
-            fragmentCameraBinding.overlay.setResults(
+            fragmentCameraBinding?.overlay?.setResults(
                 results ?: LinkedList<Detection>(),
                 imageHeight,
                 imageWidth
             )
 
             // Force a redraw
-            fragmentCameraBinding.overlay.invalidate()
+            fragmentCameraBinding?.overlay?.invalidate()
         }
     }
 
@@ -342,7 +342,7 @@ class CameraFragment() : Fragment(), ObjectDetectorHelper.DetectorListener {
             setUpCamera()
         }
 
-        fragmentCameraBinding.progressCircular.visibility = View.GONE
+        fragmentCameraBinding?.progressCircular?.visibility = View.GONE
     }
 
     override fun onDestroy() {

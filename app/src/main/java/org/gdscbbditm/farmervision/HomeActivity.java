@@ -21,6 +21,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
 
+
         destroyCamFromDatabase();
 
         camMode.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mDbRef = FirebaseDatabase.getInstance().getReference();
 
-        String uid = uid = mAuth.getCurrentUser().getUid();
+        String uid = mAuth.getCurrentUser().getUid();
 
 
         Bundle extras = getIntent().getExtras();
@@ -100,12 +103,9 @@ public class HomeActivity extends AppCompatActivity {
                 // our value to our text view in below line.
                 greeting.setText("Welcome, "+name+"!");
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // calling on cancelled method when we receive
-                // any error or we are not able to get the data.
-                Toast.makeText(HomeActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+                // no warnings since functionality is not disrupted
             }
         });
     }
@@ -115,6 +115,8 @@ public class HomeActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.menu_logout) {
             mAuth.signOut();
+            gsc.signOut();
+            Toast.makeText(HomeActivity.this, "Signed out successfully.", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             finish();
         }

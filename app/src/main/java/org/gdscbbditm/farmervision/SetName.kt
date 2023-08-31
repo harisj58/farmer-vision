@@ -9,7 +9,6 @@ import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.gdscbbditm.farmervision.R
 
 class SetName : AppCompatActivity() {
     private lateinit var name: EditText

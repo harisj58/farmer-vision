@@ -8,10 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,10 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.android.gms.common.SignInButton;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-
-import org.gdscbbditm.farmervision.R;
-
-import java.util.function.Consumer;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -179,6 +173,7 @@ public class LoginActivity extends AppCompatActivity {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         intToHome.putExtra("name", name);
         intToHome.putExtra("email", email);
+        Toast.makeText(this, "Signed in with: "+email, Toast.LENGTH_SHORT).show();
         startActivity(intToHome);
     }
 }

@@ -21,7 +21,6 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import org.gdscbbditm.farmervision.R
 import org.tensorflow.lite.task.gms.vision.detector.Detection
 import java.util.*
 import kotlin.math.max
