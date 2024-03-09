@@ -1,70 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="org.gdscbbditm.farmervision">
-    <!-- Enable instant app support -->
-    <dist:module dist:instant="true" />
-    <!-- Declare features -->
-    <uses-feature android:name="android.hardware.camera" />
-    <!-- Declare permissions -->
-    <uses-permission android:name="android.permission.CAMERA" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:taskAffinity=""
-        tools:ignore="AllowBackup">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FarmerVision"
+        tools:targetApi="31">
         <activity
-            android:name=".OnboardingActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".CameraList"
-            android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".SetName"
+            android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+            android:label="@string/app_name"
+            android:theme="@style/Theme.FarmerVision">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".SignupActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:clearTaskOnLaunch="true"
-            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher"
-            android:resizeableActivity="true"
-            android:rotationAnimation="seamless"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            tools:targetApi="O">
-
-            <!-- Main app intent filter -->
-
-
-            <!-- Declare notch support -->
-            <meta-data
-                android:name="android.notch_support"
-                android:value="true" />
         </activity>
     </application>
 
